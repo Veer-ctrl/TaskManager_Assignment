@@ -1,0 +1,48 @@
+<div class="bg-canvas border border-line rounded-xl p-4 flex flex-col lg:flex-row gap-4 justify-between">
+
+  <div class="flex flex-col lg:flex-row gap-3 flex-1">
+
+    <input
+      type="text"
+      [(ngModel)]="search"
+      (input)="onSearch()"
+      placeholder="Search tasks…"
+      class="border border-line rounded-lg px-4 py-2.5 flex-1 font-sans text-sm text-ink placeholder:text-muted bg-canvas focus:outline-none focus:ring-2 focus:ring-accent">
+
+    <!-- Segmented status filter -->
+    <div class="flex rounded-lg border border-line-warm overflow-hidden font-mono text-xs">
+      <button
+        (click)="status = ''; onStatusChange()"
+        [class]="status === '' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+        class="px-4 py-2.5 transition-colors">
+        All
+      </button>
+      <button
+        (click)="status = 'Pending'; onStatusChange()"
+        [class]="status === 'Pending' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+        class="px-4 py-2.5 border-l border-line-warm transition-colors">
+        Pending
+      </button>
+      <button
+        (click)="status = 'In Progress'; onStatusChange()"
+        [class]="status === 'In Progress' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+        class="px-4 py-2.5 border-l border-line-warm transition-colors">
+        In Progress
+      </button>
+      <button
+        (click)="status = 'Completed'; onStatusChange()"
+        [class]="status === 'Completed' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+        class="px-4 py-2.5 border-l border-line-warm transition-colors">
+        Completed
+      </button>
+    </div>
+
+  </div>
+
+  <button
+    (click)="openModal()"
+    class="bg-accent hover:bg-accent/85 text-white rounded-lg px-5 py-2.5 font-sans font-medium text-sm transition-colors">
+    + New Task
+  </button>
+
+</div>

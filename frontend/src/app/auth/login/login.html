@@ -1,0 +1,52 @@
+<div class="min-h-screen bg-page flex items-center justify-center px-4">
+
+  <div class="w-full max-w-sm bg-canvas border border-line rounded-xl p-8">
+
+    <h2 class="text-2xl font-display font-semibold text-ink mb-1">
+      Task Manager
+    </h2>
+    <p class="text-xs font-mono text-muted mb-7 uppercase tracking-wide">
+      Sign in to your account
+    </p>
+
+    <div class="space-y-4">
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">
+          Username
+        </label>
+        <input
+          type="text"
+          placeholder="Enter username"
+          [(ngModel)]="username"
+          class="w-full border border-line rounded-lg px-3 py-2.5 font-sans text-sm text-ink placeholder:text-muted bg-canvas focus:outline-none focus:ring-2 focus:ring-accent" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">
+          Password
+        </label>
+        <input
+          type="password"
+          placeholder="Enter password"
+          [(ngModel)]="password"
+          class="w-full border border-line rounded-lg px-3 py-2.5 font-sans text-sm text-ink placeholder:text-muted bg-canvas focus:outline-none focus:ring-2 focus:ring-accent" />
+      </div>
+
+      <button
+        (click)="login()"
+        class="w-full bg-accent hover:bg-accent/85 text-white rounded-lg px-4 py-2.5 font-sans font-medium text-sm transition-colors mt-2">
+        Sign in
+      </button>
+
+      @if (error) {
+      <p class="text-xs font-sans text-center text-red-600 pt-1">
+        {{ error }}
+      </p>
+      }
+
+    </div>
+
+  </div>
+
+</div>

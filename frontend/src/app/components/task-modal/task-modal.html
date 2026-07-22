@@ -1,0 +1,93 @@
+<div class="fixed inset-0 bg-ink/50 flex items-center justify-center z-50">
+
+  <div class="bg-canvas border border-line rounded-xl shadow-sm w-full max-w-lg p-8">
+
+    <div class="flex justify-between items-center mb-6">
+
+      <h2 class="text-xl font-display font-semibold text-ink">
+        {{ task ? 'Edit Task' : 'New Task' }}
+      </h2>
+
+      <button
+        (click)="close.emit()"
+        class="text-muted hover:text-ink text-xl leading-none transition-colors"
+        aria-label="Close">
+        ×
+      </button>
+
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-4">
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">Title</label>
+        <input
+          formControlName="title"
+          placeholder="Task title"
+          class="w-full border border-line rounded-lg px-3 py-2.5 font-sans text-sm text-ink placeholder:text-muted bg-canvas focus:outline-none focus:ring-2 focus:ring-accent">
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">Description</label>
+        <textarea
+          formControlName="description"
+          placeholder="Optional description"
+          rows="3"
+          class="w-full border border-line rounded-lg px-3 py-2.5 font-sans text-sm text-ink placeholder:text-muted bg-canvas focus:outline-none focus:ring-2 focus:ring-accent resize-none">
+        </textarea>
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">Status</label>
+        <div class="flex rounded-lg border border-line-warm overflow-hidden font-mono text-xs">
+          <button type="button"
+            (click)="form.get('status')?.setValue('Pending')"
+            [class]="form.get('status')?.value === 'Pending' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+            class="flex-1 py-2.5 transition-colors">
+            Pending
+          </button>
+          <button type="button"
+            (click)="form.get('status')?.setValue('In Progress')"
+            [class]="form.get('status')?.value === 'In Progress' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+            class="flex-1 py-2.5 border-l border-line-warm transition-colors">
+            In Progress
+          </button>
+          <button type="button"
+            (click)="form.get('status')?.setValue('Completed')"
+            [class]="form.get('status')?.value === 'Completed' ? 'bg-ink text-white' : 'text-muted bg-canvas hover:bg-accent-soft'"
+            class="flex-1 py-2.5 border-l border-line-warm transition-colors">
+            Completed
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-mono font-medium text-muted mb-1.5 uppercase tracking-wide">Due Date</label>
+        <input
+          type="date"
+          formControlName="due_date"
+          class="w-full border border-line rounded-lg px-3 py-2.5 font-sans text-sm text-ink bg-canvas focus:outline-none focus:ring-2 focus:ring-accent">
+      </div>
+
+      <div class="flex justify-end gap-3 pt-2">
+
+        <button
+          type="button"
+          (click)="close.emit()"
+          class="px-5 py-2.5 rounded-lg border border-line font-sans text-sm text-body hover:bg-accent-soft transition-colors">
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="bg-accent hover:bg-accent/85 text-white px-5 py-2.5 rounded-lg font-sans text-sm font-medium transition-colors">
+          {{ task ? 'Save Changes' : 'Create Task' }}
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

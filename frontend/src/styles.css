@@ -1,0 +1,27 @@
+/* Global styles */
+
+@import 'tailwindcss';
+
+/* Custom theme tokens (Tailwind v4 CSS-first config) */
+@theme {
+  /* Surfaces */
+  --color-page: #FEFDF7;         /* off-white with 8% cream tint — page background only */
+  --color-canvas: #FFFFFF;       /* pure white — cards, inputs, surfaces */
+
+  /* Text */
+  --color-ink: #111827;          /* near-black — headings, primary body text */
+  --color-body: #374151;         /* dark gray — regular body/paragraph text */
+  --color-muted: #6B7280;        /* medium gray — secondary text, placeholders */
+
+  /* Borders */
+  --color-line: #D1D5DB;         /* neutral gray — all borders and dividers */
+  --color-line-warm: #C9C58A;    /* warm olive — accent borders, segmented control */
+
+  /* Accent */
+  --color-accent: #7A3E9E;       /* darkened purple — primary buttons, focus rings */
+  --color-accent-soft: #EDE9FF;  /* very light lavender — hover tints, inactive states */
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}

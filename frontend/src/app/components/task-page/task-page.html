@@ -1,0 +1,49 @@
+<div class="min-h-screen bg-page">
+
+  <div class="max-w-7xl mx-auto px-6 py-10">
+
+    <div class="flex items-start justify-between mb-8">
+
+      <div>
+        <h1 class="text-3xl font-display font-semibold text-ink">
+          Welcome, {{ username }}
+        </h1>
+        <p class="font-sans text-sm text-body mt-1">
+          Manage your daily work efficiently.
+        </p>
+      </div>
+
+      <button
+        (click)="logout()"
+        class="px-4 py-2 rounded-lg border border-line font-sans text-sm text-body hover:bg-accent-soft hover:border-line-warm transition-colors">
+        Logout
+      </button>
+
+    </div>
+
+    <app-toolbar
+      (searchChange)="onSearch($event)"
+      (statusChange)="onStatus($event)"
+      (newTask)="openCreateModal()">
+    </app-toolbar>
+
+    <div class="mt-6">
+      <app-task-table
+        [tasks]="filteredTasks"
+        [loading]="loading"
+        (edit)="editTask($event)"
+        (delete)="deleteTask($event)">
+      </app-task-table>
+    </div>
+
+    @if (isModalOpen) {
+      <app-task-modal
+        [task]="selectedTask"
+        (close)="closeModal()"
+        (saved)="onTaskSaved()">
+      </app-task-modal>
+    }
+
+  </div>
+
+</div>
