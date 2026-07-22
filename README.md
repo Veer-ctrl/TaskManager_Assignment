@@ -3,6 +3,10 @@
 A full-stack Task Manager application built using **Angular 20** and **Django REST Framework**. The application allows authenticated users to securely manage their own tasks with JWT Authentication.
 
 ---
+<img width="1918" height="867" alt="image" src="https://github.com/user-attachments/assets/6db66103-5f59-412e-acdc-5a518a5ff91d" />
+<img width="1917" height="870" alt="image" src="https://github.com/user-attachments/assets/a8227696-2554-4c61-ac0f-a835525deba7" />
+
+
 
 ## Features
 
